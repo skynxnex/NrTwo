@@ -1,1 +1,6 @@
 /* Style me plz */
+
+BODY.loading,
+BODY.loading A {
+    cursor: progress !important;
+}
