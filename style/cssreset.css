@@ -1,0 +1,37 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+HTML,
+BODY {
+    background: white;
+    font-size: 100%;
+}
+
+IMG,
+TABLE,
+FIELDSET {
+    border: 0px;
+}
+
+DL,
+UL {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+LEGEND,
+CAPTION {
+    display: none;
+}
+
+HR {
+    color: black;
+    background-color: black;
+    border: none;
+}
+
+.hidden {
+    display: none;
+}
