@@ -1,5 +1,5 @@
 <?php
-
+/*
 if (isset($_GET['action']) && $_GET['action'] == 'dummyJSON') {
 
     //$query = "SQL QUERY";
@@ -15,5 +15,5 @@ if (isset($_GET['action']) && $_GET['action'] == 'dummyJSON') {
         "table6": "Table6 data"
     }';
     echo $result;
-}
+} */
 ?>
