@@ -9,7 +9,6 @@ function addConsultant($args = array()){
 		
 	$query = "INSERT INTO persons (firstname, surname, language_id) VALUES (?,?,?)";
 	$stmt = $db->prepare($query);
-	print_r($stmt);
 	$stmt->bind_param('ssi',$args[0],$args[1],$args[2]);
 	$result = $stmt->execute();
 	if($result) {
