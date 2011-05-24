@@ -7,7 +7,7 @@ require_once('../simpletest/autorun.php');
 /* Class includes */
 	
 function __autoload($className) {
-	$classPaths = array('/library/'); 
+	$classPaths = array('/library/', '/includes/php/'); 
 	$ext = '.php';
 	foreach ($classPaths as $classPath) {
 		$full_path = INCLUDE_PATH . $classPath . $className . $ext;
