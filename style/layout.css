@@ -4,3 +4,15 @@ BODY.loading,
 BODY.loading A {
     cursor: progress !important;
 }
+
+p {
+	margin-bottom:10px;
+}
+
+#new_user {
+	margin:20px;
+}
+#new_user fieldset {
+	border:1px solid #666;
+	padding:20px;
+}
