@@ -1,6 +1,6 @@
 $(function(){
 	
-	$('#opopin').load('/includes/html/form_add_consultant.html', new_user);
+	$('#opopin').load('form_add_consultant.html', new_user);
 	
 	function new_user(){
 		
