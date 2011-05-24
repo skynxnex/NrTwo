@@ -3,7 +3,19 @@ $(function(){
 	$('#opopin').load('/includes/html/form_add_consultant.html', new_user);
 	
 	function new_user(){
+		
+		/*
+		Alternative code
+		
+		$(".submit").click(function() {
+			$.post('api/?/addConsultant', $("#new_user").serialize(), function(data){
+				alert("Done"+data);	
+			});
+		});
+		*/
+		
 		$('.error').hide();
+		$("input#name").select().focus();
 		$('input.text-input').css({backgroundColor:"#FFFFFF"});
 		$('input.text-input').focus(function(){
 			$(this).css({backgroundColor:"#FFDDAA"});
@@ -32,7 +44,7 @@ $(function(){
 		});
 		
 		var dataString = 'firstname='+ firstname + '&lastname=' + lastname;
-		alert (dataString); return false;
+		//alert (dataString); return false;
 		
 		$.ajax({
 			type: "POST",
