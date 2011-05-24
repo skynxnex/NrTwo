@@ -1,7 +1,7 @@
 <?php
 
 
-require_once('../includes/php/addConsultant.php');
+require_once('../includes/php/addConsultant.func.php');
 
 
 class addConsultant extends UnitTestCase{
