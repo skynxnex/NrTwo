@@ -13,7 +13,7 @@ $keys 		= array_keys($_GET);
 $url 		= $keys[0];
 $urlParts 	= explode("/", $url);
 $action 	= $urlParts[1];
-$file 		= INCLUDE_PATH.'library/'.$action.'.func.php';
+$file 		= INCLUDE_PATH.'includes/php/'.$action.'.func.php';
 
 if(file_exists($file)) {
 	include($file);

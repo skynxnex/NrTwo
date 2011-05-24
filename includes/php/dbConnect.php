@@ -1,6 +1,6 @@
 <?php
 
-require "../config/config.php";
+require_once( "../config/config.php");
 /*
  *  Class for MySQLi connection and database selection 
  */
@@ -14,7 +14,7 @@ class MysqliConnect {
     private $db_password;
     private static $connection;
 
-    public function __construct($hostname=DB_HOSTNAME, $username=DB_USERNAME, $password=DB_PASSWORD, $database=DB_DATABASE) {
+    public function __construct($hostname=DATABASE_HOST, $username=DATABASE_USER, $password=DATABASE_PASS, $database=DATABASE_BASE) {
         $this->db_hostname = $hostname;
         $this->db_username = $username;
         $this->db_password = $password;
