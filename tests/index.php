@@ -63,7 +63,7 @@ if (!isset($_GET['test'])) {
 	echo '<li><a href="index.php">Home</a></li>';
 }
 foreach ($filelist as $file) {
-	$file = explode('.', $file);
+	$file = explode('.test.php', $file);
 	if($file[0] != "index") {
 		if (isset($_GET['test']) && $file[0] == $_GET['test']) {
 			echo '<li><a href="?test=' . $file[0] . '" id="current">' . $file[0] . '</a></li>';
