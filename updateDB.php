@@ -1,13 +1,26 @@
 <?php
 include "includes/php/MysqliConnect.php";
+include "config/config.php";
+
 $db = new MysqliConnect;
+$conn = $db->dbConnect();
 
-$db->dbConnect();
-
-$query = file_get_contents("sql/NrTwo.sql");
-if (!$db->query($query)){
-	echo "not working";
+// check connection
+if (mysqli_connect_errno()) {
+  exit('Connect failed: '. mysqli_connect_error());
 }
-$db->close();
-//$stmt = $mysqli->prepare($query);
-#$stmt->execute();
+
+// sql query with CREATE DATABASE
+$sql = file_get_contents("sql/nrtwo.sql");
+
+// Performs the $sql query on the server to create the database
+if ($conn->multi_query($sql) === TRUE) {
+  echo 'Database successfully created';
+}
+else {
+ echo 'Error: '. $conn->error;
+}
+
+$conn->close();
+?>
+
