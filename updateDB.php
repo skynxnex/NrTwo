@@ -1,6 +1,7 @@
 <?php
 include "includes/php/MysqliConnect.php";
 include "config/config.php";
+
 $db = new MysqliConnect;
 $conn = $db->dbConnect();
 
@@ -22,3 +23,4 @@ else {
 
 $conn->close();
 ?>
+

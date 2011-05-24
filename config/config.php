@@ -8,6 +8,7 @@ define('ENCODING',			'UTF-8');
 /* DB settings */
 define('DATABASE_DRIVER',	'mysqli'); 
 define('DATABASE_HOST',		'localhost'); /* Change accordingly */
+
 define('DATABASE_USER',		'root'); /* Change accordingly */
 define('DATABASE_PASS',		'root'); /* Change accordingly */
 define('DATABASE_BASE',		'nrtwo');
