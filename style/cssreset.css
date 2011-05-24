@@ -21,11 +21,6 @@ UL {
     overflow: hidden;
 }
 
-LEGEND,
-CAPTION {
-    display: none;
-}
-
 HR {
     color: black;
     background-color: black;
