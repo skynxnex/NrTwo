@@ -1,6 +1,7 @@
 <?php
 
 require_once('../config/config.php');
+
 /**
 *	
 *	URL should be written as follows: /api/?/function_name

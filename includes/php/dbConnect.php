@@ -1,6 +1,6 @@
 <?php
 
-require "../config/config.php";
+
 /*
  *  Class for MySQLi connection and database selection 
  */
