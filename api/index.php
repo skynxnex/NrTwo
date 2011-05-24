@@ -1,7 +1,7 @@
 <?php
 
 require_once('../config/config.php');
-require_once('../includes/php/MysqliConnect.php');
+
 /**
  * 	
  * 	URL should be written as follows: /api/?/function_name

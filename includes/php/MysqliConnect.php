@@ -1,5 +1,6 @@
 <?php
 
+
 /*
  *  Class for MySQLi connection and database selection 
  */
