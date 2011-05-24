@@ -9,8 +9,8 @@ define('ENCODING',			'UTF-8');
 define('DATABASE_DRIVER',	'mysqli'); 
 define('DATABASE_HOST',		'localhost'); /* Change accordingly */
 define('DATABASE_USER',		'root'); /* Change accordingly */
-define('DATABASE_PASS',		'root'); /* Change accordingly */
-define('DATABASE_BASE',		'nrtwo');
+define('DATABASE_PASS',		'fe1s1ag'); /* Change accordingly */
+define('DATABASE_BASE',		'NrTwo');
 
 ?>
 
