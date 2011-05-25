@@ -75,8 +75,6 @@ $(function() {
 	$('#createExpertise').click(function(){
 		$('#main_body').empty();
 	});
-	$('#createExpertiseType').click(function(){
-		$('#main_body').empty();
-	});
+	
 	
 });
