@@ -1,3 +1,4 @@
+
 <?php
 
 /* param: array(string, string, int), inserts into db, returns: status, insertid,errormsg */
@@ -5,18 +6,16 @@
 require_once('../config/config.php');
 require_once(INCLUDE_PATH . '/api/includes/MysqliConnect.php');
 
-function _addExpertise($args = array()) {
+function _addExpertiseType($args = array()) {
 
     $connect = new MysqliConnect;
     $db = $connect->dbConnect();
 
-    $query = "INSERT INTO expertise (expertiseType_id, name, description) VALUES (?,?,?)";
+    $query = "INSERT INTO expertisetype (name) VALUES (?)";
     $stmt = $db->prepare($query);
 
-    $expertiseType = $args['expertiseType'];
     $name = $args['name'];
-    $desc = $args['desc'];
-    $stmt->bind_param("iss", $expertiseType, $name, $desc);
+    $stmt->bind_param("s", $name);
 
     if ($stmt->execute()) {
         return array('status' => 'success',
