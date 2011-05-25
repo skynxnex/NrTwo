@@ -2,7 +2,7 @@
 
 require_once('../config/config.php');
 require_once(INCLUDE_PATH.'/api/includes/MysqliConnect.php');
-include_once(INCLUDE_PATH.'/firephp/lib/FirePHPCore/FirePHP.class.php'); // php debug tillagd av pontus, bara att ignorera 
+//include_once(INCLUDE_PATH.'/firephp/lib/FirePHPCore/FirePHP.class.php'); // php debug tillagd av pontus, bara att ignorera 
 
 /**
  * 	
