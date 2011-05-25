@@ -25,7 +25,7 @@ class MysqliConnect {
 
     public function dbConnect() {
         if (empty(self::$connection)) {
-            self::$connection = new mysqli('localhost','root','root','nrtwo');
+            self::$connection = new mysqli('localhost','root','','nrtwo');
             self::$connection->set_charset("utf8");
         }
         return self::$connection;
