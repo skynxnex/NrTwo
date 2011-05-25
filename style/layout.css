@@ -5,6 +5,10 @@ BODY.loading A {
     cursor: progress !important;
 }
 
+h1 {
+	color: red;
+}
+
 p {
 	margin-bottom:10px;
 }

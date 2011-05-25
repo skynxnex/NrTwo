@@ -10,5 +10,6 @@ class dbconnect extends UnitTestCase {
 	
 	function test_true() {
 		$this->assertTrue($this->db->dbConnect());
+		$conn = $this->db->dbConnect();
 	}
 }
