@@ -5,8 +5,9 @@ BODY.loading A {
     cursor: progress !important;
 }
 
-h1 {
-	color: red;
+li {
+	float: left;
+	margin: 10px;
 }
 
 p {
