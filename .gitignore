@@ -1,3 +1,4 @@
 /config/
-/nbproject/private/
+/nbproject/
 /firephp/
+/.settings/
