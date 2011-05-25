@@ -1,6 +1,6 @@
 <?php
-include "includes/php/MysqliConnect.php";
 include "config/config.php";
+include "api/includes/MysqliConnect.php";
 
 $db = new MysqliConnect;
 $conn = $db->dbConnect();

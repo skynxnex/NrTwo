@@ -13,16 +13,25 @@ DROP TABLE IF EXISTS `persons`;
 CREATE TABLE `persons` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `firstname` varchar(50) COLLATE utf8_bin NOT NULL,
-  `surname` varchar(50) COLLATE utf8_bin NOT NULL,
+  `lastname` varchar(50) COLLATE utf8_bin NOT NULL,
   `language_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO `persons` (`id`, `firstname`, `surname`, `language_id`) VALUES
+INSERT INTO `persons` (`id`, `firstname`, `lastname`, `language_id`) VALUES
 (1,	'pelle',	'olsson',	2),
 (2,	'pelle',	'olsson',	2),
 (3,	'pelle',	'olsson',	2),
 (4,	'pelle',	'olsson',	2),
-(5,	'pelle',	'olsson',	2);
+(5,	'pelle',	'olsson',	2),
+(6,	'pelle',	'olsson',	0),
+(7,	'Pontus',	'Alm',	0),
+(8,	'pelle',	'olsson',	0),
+(9,	'pelle',	'olsson',	0),
+(10,	'pelle',	'olsson',	0),
+(11,	'olle',	'olsson',	0),
+(12,	'olle',	'olsson',	0),
+(13,	'olle',	'olsson',	0),
+(14,	'olle',	'olsson',	0);
 
--- 2011-05-24 20:34:44
+-- 2011-05-25 09:50:59
