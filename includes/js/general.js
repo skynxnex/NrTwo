@@ -127,11 +127,11 @@ $('#listConsults').click(function(e) {
     e.preventDefault()
     $('#main_body').empty();
 });
-
+/*
 $('#createExpertise').click(function(e) {
     e.preventDefault()
     $('#main_body').empty();
-});
+}); */
 
 $('#createExpertiseType').click(function(e) {
     e.preventDefault()

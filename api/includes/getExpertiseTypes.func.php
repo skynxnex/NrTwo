@@ -5,7 +5,7 @@
 require_once('../config/config.php');
 require_once(INCLUDE_PATH . '/api/includes/MysqliConnect.php');
 
-function _getExpertiseType($args = array()) {
+function _getExpertiseTypes($args = array()) {
 
     $connect = new MysqliConnect;
     $db = $connect->dbConnect();
@@ -18,10 +18,10 @@ function _getExpertiseType($args = array()) {
         $row = array("id" => $obj->id, "name" => $obj->name);
         $returnArray[] = $row;
     }
-
-    var_dump($returnArray);
     return $returnArray;
-
+    //var_dump($returnArray);
+    //$result = json_encode($returnArray);
+    //echo $result;
 }
 
 ?>

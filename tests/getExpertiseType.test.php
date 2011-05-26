@@ -2,11 +2,11 @@
 
 require_once('../api/includes/getExpertiseTypes.func.php');
 
-class getExpertiseType extends UnitTestCase {
+class getExpertiseTypes extends UnitTestCase {
 
-    function test_getExpertiseType() {
+    function test_getExpertiseTypes() {
     
-        _getExpertiseType();
+        _getExpertiseTypes();
         
     }
 
