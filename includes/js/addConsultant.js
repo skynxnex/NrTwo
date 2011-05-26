@@ -28,14 +28,18 @@ function addConsult(){
 			url: "api/?/addConsultant",
 			dataType : 'json',
 			data: dataString,
-			success: function(data, textstring, obj) {
+			success: function(returnObj, returnStatus) {
 				$('#main_body').html("<div id='message'></div>");
-				$('#message').html("<h2>Konsult inlagd i systemet :D</h2>")
-				.append("<p>"+ data.status + "</p>")
+				$('#message').html("<p>status: " + returnObj.status + "</p>")
+				.append('<p>Konsulten är nu inlagd i systemet med id ' + returnObj.id + '</p>')
 				.hide()
 				.fadeIn(1500, function() {
 					$('#message').append("<img id='checkmark' src='/images/check.png' />");
 				});
+			},
+			error: function() {
+				$('#main_body').html("<div id='message'></div>");
+				$('#message').html("<p>status: fail</p>");
 			}
 		});
 		return false;

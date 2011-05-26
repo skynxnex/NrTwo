@@ -22,12 +22,17 @@ function _addConsultant($args = array()){
 						'id' => $stmt->insert_id,
 						'error' => $stmt->error
 					);
-	}else{
+	}
+	
+	/* $.ajax() error() doesnt return an object which doesnt make
+		it possible to retrive the returned values
+	else{
 		return array(	'status' => 'fail',
 						'id' => $stmt->insert_id,
 						'error' => $stmt->error
 					);
 		}
+	*/
 
 }
 
