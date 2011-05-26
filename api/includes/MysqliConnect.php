@@ -17,9 +17,9 @@ class MysqliConnect {
 
     public function __construct() {
         $this->db_hostname = DATABASE_HOST;
-        $this->db_username = $username;
-        $this->db_password = $password;
-        $this->db_database = $database;
+        $this->db_username = DATABASE_USER;
+        $this->db_password = DATABASE_PASS;
+        $this->db_database = DATABASE_BASE;
     }
 
     public function dbConnect() {
