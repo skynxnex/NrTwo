@@ -11,7 +11,7 @@ function _addExpertiseType($args = array()) {
     $connect = new MysqliConnect;
     $db = $connect->dbConnect();
 
-    $query = "INSERT INTO expertiseType (name) VALUES (?)";
+    $query = "INSERT INTO expertise_type (name) VALUES (?)";
     $stmt = $db->prepare($query);
 
     $name = $args['name'];
