@@ -1,6 +1,5 @@
 $(function() {
-	$('#createExpertiseType').click(function(e){
-		e.preventDefault();
+	$('#createExpertiseType').click(function(){
 		$('#main_body').empty();
 		$('#main_body').load('includes/html/formCreateExpertiseType.html', newExpertiseType);
 					
