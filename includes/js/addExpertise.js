@@ -1,11 +1,11 @@
 
-
+/*
 $(function() {
     $('a[rel="createExpertise"]').click(function(e) {
         e.preventDefault();
         $('#main_body').empty();
         $('#main_body').load('includes/html/inc_add_expertise.html', new_expertise);
-
+*/
         function new_expertise(data){
             $.ajax({
                 type: "GET",

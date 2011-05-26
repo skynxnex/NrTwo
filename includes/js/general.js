@@ -125,24 +125,25 @@ function listData(data) {
 
 // JS Frontend
 $(function(){
-	$('#addConsult').click(function() {
-		$('#main_body').empty();
-		$('#main_body').load('includes/html/formAddConsultant.html', addConsult);
-	});
+    $('#addConsult').click(function() {
+        $('#main_body').empty();
+        $('#main_body').load('includes/html/formAddConsultant.html', addConsult);
+    });
 	
-	$('#listConsults').click(function() {
-		$('#main_body').empty();
-		//$('#main_body').load('includes/html/formListConsultants.html', listConsultants);
-	});
+    $('#listConsults').click(function() {
+        $('#main_body').empty();
+    //$('#main_body').load('includes/html/formListConsultants.html', listConsultants);
+    });
 	
-	$('#createExpertise').click(function() {
-		$('#main_body').empty();
-		$('#main_body').load('includes/html/formCreateExpertise.html', addExpertise);
-	});
+    $('a[rel="createExpertise"]').click(function(e) {
+        e.preventDefault();
+        $('#main_body').empty();
+        $('#main_body').load('includes/html/inc_add_expertise.html', new_expertise)
+    });
 	
-	$('#createExpertiseType').click(function() {
-		$('#main_body').empty();
-		$('#main_body').load('includes/html/formCreateExpertiseType.html', addExpertiseType);
-	});
+    $('#createExpertiseType').click(function() {
+        $('#main_body').empty();
+        $('#main_body').load('includes/html/formCreateExpertiseType.html', addExpertiseType);
+    });
 	
 });
