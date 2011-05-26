@@ -21,14 +21,18 @@ function addExpertiseType(){
 			url: "api/?/addExpertiseType",
 			dataType : 'json',
 			data: dataString,
-			success: function() {
-				$('#formHolder').html("<div id='message'></div>");
-				$('#message').html("<h2>Kompetenstyp inlagd i systemet :D</h2>")
-				.append("<p>Vi hör av oss.</p>")
+			success: function(returnObj, returnStatus) {
+				$('#main_body').html("<div id='message'></div>");
+				$('#message').html("<p>status: " + returnObj.status + "</p>")
+				.append('<p>Kompetenstypen är nu inlagd i systemet med id ' + returnObj.id + '</p>')
 				.hide()
 				.fadeIn(1500, function() {
 					$('#message').append("<img id='checkmark' src='/images/check.png' />");
 				});
+			},
+			error: function() {
+				$('#main_body').html("<div id='message'></div>");
+				$('#message').html("<p>status: fail</p>");
 			}
 		});
 		return false;
