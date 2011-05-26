@@ -10,7 +10,7 @@ function _addConsultant($args = array()){
 	$connect = new MysqliConnect;
 	$db = $connect->dbConnect();
 
-	$query = "INSERT INTO persons (firstname, lastname) VALUES (?,?)";
+	$query = "INSERT INTO person (firstname, lastname) VALUES (?,?)";
 	$stmt = $db->prepare($query);
 	
 	$firstname = $args['firstname'];

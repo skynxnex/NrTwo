@@ -28,10 +28,10 @@ function addConsult(){
 			url: "api/?/addConsultant",
 			dataType : 'json',
 			data: dataString,
-			success: function() {
-				$('#formHolder').html("<div id='message'></div>");
+			success: function(data, textstring, obj) {
+				$('#main_body').html("<div id='message'></div>");
 				$('#message').html("<h2>Konsult inlagd i systemet :D</h2>")
-				.append("<p>Vi hör av oss.</p>")
+				.append("<p>"+ data.status + "</p>")
 				.hide()
 				.fadeIn(1500, function() {
 					$('#message').append("<img id='checkmark' src='/images/check.png' />");
