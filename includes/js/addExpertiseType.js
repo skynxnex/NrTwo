@@ -21,6 +21,7 @@ $(function() {
 				type: "POST",
 				url: "api/?/addExpertiseType",
 				dataType: 'json',
+                                data: dataString,
 				success: function() {
 						$('#createExpertiseType').html("<div id='message'></div>");
 						$('#message').html("<h2>Kompetenstyp inlagd i systemet. :D</h2>")
