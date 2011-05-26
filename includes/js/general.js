@@ -127,33 +127,22 @@ function listData(data) {
 $(function(){
 	$('#addConsult').click(function() {
 		$('#main_body').empty();
-		$('#main_body').load('includes/html/formAddConsultant.html', new_consult);
+		$('#main_body').load('includes/html/formAddConsultant.html', addConsult);
 	});
 	
 	$('#listConsults').click(function() {
 		$('#main_body').empty();
-		//$('#main_body').load('includes/html/formListConsultants.html', new_consult);
+		//$('#main_body').load('includes/html/formListConsultants.html', listConsultants);
 	});
 	
 	$('#createExpertise').click(function() {
 		$('#main_body').empty();
-		//$('#main_body').load('includes/html/formCreateExpertise.html', new_consult);
+		$('#main_body').load('includes/html/formCreateExpertise.html', addExpertise);
 	});
 	
 	$('#createExpertiseType').click(function() {
 		$('#main_body').empty();
-		//$('#main_body').load('includes/html/formCreateExpertiseType.html', new_consult);
+		$('#main_body').load('includes/html/formCreateExpertiseType.html', addExpertiseType);
 	});
 	
-});
-
-/*
-$('#createExpertise').click(function(e) {
-    e.preventDefault()
-    $('#main_body').empty();
-}); */
-
-$('#createExpertiseType').click(function(e) {
-    e.preventDefault()
-    $('#main_body').empty();
 });
