@@ -1,35 +1,16 @@
 $(function() {
-	$('#addConsult').click(function(e) {
-        e.preventDefault();
+	$('#addConsult').click(function(event) {
 		$('#main_body').empty();
 		$('#main_body').load('includes/html/form_add_consultant.html', new_user);
 
 		function new_user(){
-		
-			/*
-			Alternative code
-		
-			$(".submit").click(function() {
-				$.post('api/?/addConsultant', $("#new_user").serialize(), function(data){
-					alert("Done"+data);	
-				});
-			});
-			*/
-		
+				
 			$('.error').hide();
-			$("input#name").select().focus();
-			$('input.text-input').css({backgroundColor:"#FFFFFF"});
-			$('input.text-input').focus(function(){
-				$(this).css({backgroundColor:"#FFDDAA"});
-			});
-		
-			$('input.text-input').blur(function(){
-				$(this).css({backgroundColor:"#FFFFFF"});
-			});
+			$("input#firstname").select().focus();
 		
 			$(".submit").click(function() {
-					// validate and process form
-					// first hide any error messages
+				// validate and process form
+				// first hide any error messages
 				$('.error').hide();
 				var firstname = $("input#firstname").val();
 				if (firstname == "") {
@@ -45,7 +26,7 @@ $(function() {
 				}
 		
 				var dataString = 'firstname='+ firstname + '&lastname=' + lastname;
-				// alert (dataString); return false;
+				alert (dataString); return false;
 		
 				$.ajax({
 					type: "POST",
@@ -68,7 +49,5 @@ $(function() {
 		};
 
 	});
-	
-
 	
 });
