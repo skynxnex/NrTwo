@@ -10,7 +10,7 @@ function _getExpertiseTypes() {
     $connect = new MysqliConnect;
     $db = $connect->dbConnect();
 
-    $query = "SELECT * FROM expertisetype";
+    $query = "SELECT * FROM expertise_type";
 
     $db->real_escape_string($query);
     $stmt = $db->prepare($query);

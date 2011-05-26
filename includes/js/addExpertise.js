@@ -8,7 +8,7 @@
                     $.each(data, function(count, list) { 
                         textToInsert += "<tr>";            
                         textToInsert += "<td>";
-                        if (list.name == null){
+                        if (list.id == null){
                             var info = "No expertise in db!"
                         } else {
                             var info = "<input type='radio' value=" + list.id + " name='expertisetype' />" + list.name + "</>";
