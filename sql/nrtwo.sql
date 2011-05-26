@@ -24,7 +24,7 @@ INSERT INTO `expertise` (`id`, `name`, `description`, `expertiseType_id`) VALUES
 (1,	'Tyska',	'Personer som kan tyska hjälpligt',	1);
 
 DROP TABLE IF EXISTS `expertiseType`;
-CREATE TABLE `expertiseType` (
+CREATE TABLE `expertise_type` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
