@@ -67,7 +67,7 @@ $('a[rel*="link1"]').live('click', function(e) {
 
 $('a[rel*="link2"]').live('click', function(e) {    
     e.preventDefault();
-alert("hej");
+    alert("hej");
 }) 
 
 /* Link3 normal popup with dummy json file */
@@ -123,3 +123,17 @@ function listData(data) {
 //append the <li> to an <ul class='name_of_list'>
 } 
 
+$('#listConsults').click(function(e) {
+    e.preventDefault()
+    $('#main_body').empty();
+});
+
+$('#createExpertise').click(function(e) {
+    e.preventDefault()
+    $('#main_body').empty();
+});
+
+$('#createExpertiseType').click(function(e) {
+    e.preventDefault()
+    $('#main_body').empty();
+});

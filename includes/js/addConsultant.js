@@ -1,6 +1,6 @@
 $(function() {
-	$('#addConsult').click(function(){
-	
+	$('#addConsult').click(function(e) {
+        e.preventDefault();
 		$('#main_body').empty();
 		$('#main_body').load('includes/html/form_add_consultant.html', new_user);
 
@@ -69,14 +69,6 @@ $(function() {
 
 	});
 	
-	$('#listConsults').click(function(){
-		$('#main_body').empty();
-	});
-	$('#createExpertise').click(function(){
-		$('#main_body').empty();
-	});
-	$('#createExpertiseType').click(function(){
-		$('#main_body').empty();
-	});
+
 	
 });
