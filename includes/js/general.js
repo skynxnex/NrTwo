@@ -138,7 +138,7 @@ $(function(){
     $('a[rel="createExpertise"]').click(function(e) {
         e.preventDefault();
         $('#main_body').empty();
-        $('#main_body').load('includes/html/inc_add_expertise.html', new_expertise)
+        $('#main_body').load('includes/html/inc_add_expertise.html', newExpertise)
     });
 	
     $('#createExpertiseType').click(function() {
