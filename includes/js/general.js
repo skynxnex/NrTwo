@@ -123,17 +123,26 @@ function listData(data) {
 //append the <li> to an <ul class='name_of_list'>
 } 
 
-$('#listConsults').click(function(e) {
-    e.preventDefault()
-    $('#main_body').empty();
-});
-
-$('#createExpertise').click(function(e) {
-    e.preventDefault()
-    $('#main_body').empty();
-});
-
-$('#createExpertiseType').click(function(e) {
-    e.preventDefault()
-    $('#main_body').empty();
+// JS Frontend
+$(function(){
+	$('#addConsult').click(function() {
+		$('#main_body').empty();
+		$('#main_body').load('includes/html/formAddConsultant.html', new_consult);
+	});
+	
+	$('#listConsults').click(function() {
+		$('#main_body').empty();
+		//$('#main_body').load('includes/html/formListConsultants.html', new_consult);
+	});
+	
+	$('#createExpertise').click(function() {
+		$('#main_body').empty();
+		//$('#main_body').load('includes/html/formCreateExpertise.html', new_consult);
+	});
+	
+	$('#createExpertiseType').click(function() {
+		$('#main_body').empty();
+		//$('#main_body').load('includes/html/formCreateExpertiseType.html', new_consult);
+	});
+	
 });
