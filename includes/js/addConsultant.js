@@ -1,4 +1,4 @@
-function new_consult(){
+function addConsult(){
 		
 	$('.error').hide();
 	$("input#firstname").select().focus();
@@ -29,7 +29,7 @@ function new_consult(){
 			dataType : 'json',
 			data: dataString,
 			success: function() {
-				$('#new_user_form').html("<div id='message'></div>");
+				$('#formHolder').html("<div id='message'></div>");
 				$('#message').html("<h2>Konsult inlagd i systemet :D</h2>")
 				.append("<p>Vi hör av oss.</p>")
 				.hide()
