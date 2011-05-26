@@ -1,14 +1,14 @@
 <?php
 
 
-require_once('../api/includes/addConsultant.func.php');
+require_once('../includes/php/addConsultant.func.php');
 
 
 class addConsultant extends UnitTestCase{
 	
 	function test_addConsultant(){
 		
-	$indata = array("firstname" => "olle", "lastname" => "olsson");
+	$indata = array("pelle","olsson","2");
 	$output = _addConsultant($indata);
 	
 	// kolla att vi inte ficken fail

@@ -17,7 +17,7 @@ p {
 #new_user {
 	margin:20px;
 }
-#new_user fieldset {
+fieldset {
 	border:1px solid #666;
 	padding:20px;
 }
