@@ -1,32 +1,50 @@
 
 
 $(function() {
-    $('#createExpertise').click(function(e) {
+    $('a[rel="createExpertise"]').click(function(e) {
         e.preventDefault();
         $('#main_body').empty();
         $('#main_body').load('includes/html/inc_add_expertise.html', new_expertise);
 
-        function new_expertise(){
-		
-                
+        function new_expertise(data){
             $.ajax({
                 type: "GET",
                 url: "api/?/getExpertiseTypes",
                 dataType : 'json',
                 success: function(data) {
-                    //alert(data);
                     var textToInsert = "";
-                    $.each(data, function(count, list) {
-                        textToInsert += "<p> HEJ </p>";
-                        textToInsert += "<li>";
-                        textToInsert += list.id
-                        textToInsert += "</li>";
-                    //$('#new_user_form').html("<div id='message'></div>");
+                    $.each(data, function(count, list) { 
+                        textToInsert += "<tr>";            
+                        textToInsert += "<td>";
+                        if (list.name == null){
+                            var info = "No expertise in db!"
+                        } else {
+                            var info = "<input type='radio' value=" + list.name + " name='expertisetype' />" + list.name + "</>";
+                        };
+                        textToInsert += info
+                        textToInsert += "</td>";
+                        textToInsert += "</tr>";        
                     });
-                    $("ul.descs").append(textToInsert); 
+                    $(".descs").append(textToInsert); 
                 }
             });
-                
+            /*   $.ajax({
+                type: "GET",
+                url: "api/?/getExpertiseTypes",
+                dataType : 'json',
+                success: function() {
+                    //alert(data);
+                    var textToInsert = "";
+                    $.each( function(count, list) {
+                        textToInsert += "<p> HEJ </p>";
+                   /    textToInsert += "<li>";
+                        textToInsert += list.name
+                        textToInsert += "</li>";*/
+            //$('#new_user_form').html("<div id='message'></div>");
+            /* });
+                    $("ul.descs").append(textToInsert); 
+                }
+            });      */         
             /*
 			Alternative code
 		
@@ -35,7 +53,7 @@ $(function() {
 					alert("Done"+data);	
 				});
 			});
-                 */
+             */
 		
             $('.error').hide();
             $("input#name").select().focus();

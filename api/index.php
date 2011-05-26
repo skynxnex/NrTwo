@@ -4,6 +4,7 @@ require_once('../config/config.php');
 require_once(INCLUDE_PATH.'/api/includes/MysqliConnect.php');
 include '../includes/php/dynamicHandler.php';
 include '../includes/php/search.php';
+include '../includes/php/include.php';
 //include_once(INCLUDE_PATH.'/firephp/lib/FirePHPCore/FirePHP.class.php'); // php debug tillagd av pontus, bara att ignorera 
 
 /**
