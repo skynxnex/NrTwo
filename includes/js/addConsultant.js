@@ -1,5 +1,5 @@
 $(function() {
-	$('#addConsult').click(function(event) {
+	$('#addConsult').click(function() {
 		$('#main_body').empty();
 		$('#main_body').load('includes/html/form_add_consultant.html', new_user);
 
