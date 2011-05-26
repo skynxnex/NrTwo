@@ -41,5 +41,4 @@ function new_consult(){
 		return false;
 	});
 
-};
-
+}
