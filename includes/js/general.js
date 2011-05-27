@@ -132,7 +132,7 @@ $(function(){
 	
     $('#listConsults').click(function() {
         $('#main_body').empty();
-    //$('#main_body').load('includes/html/formListConsultants.html', listConsultants);
+    	listConsultants();
     });
 	
     $('a[rel="createExpertise"]').click(function(e) {
