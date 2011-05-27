@@ -30,6 +30,9 @@ CREATE TABLE `expertise_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+INSERT INTO `expertise_type` (`id`, `name`) VALUES
+(1,	'Talat språk');
+
 
 DROP TABLE IF EXISTS `person__expertise`;
 CREATE TABLE `person__expertise` (
