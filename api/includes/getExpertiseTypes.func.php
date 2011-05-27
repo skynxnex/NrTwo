@@ -2,16 +2,26 @@
 
 /* param: array(string, string, int), inserts into db, returns: status, insertid,errormsg */
 
-require_once('../config/config.php');
-require_once(INCLUDE_PATH . '/api/includes/MysqliConnect.php');
+//require_once('../config/config.php');
+//require_once(INCLUDE_PATH . '/api/includes/MysqliConnect.php');
+require_once "getJSON.func.php";
 
-function _getExpertiseTypes() {
+
+$get = new queryDb();
+
+if (isset($_GET['action']) && $_GET['action'] == 'expertise') {
+    $query = "SELECT * FROM expertise_type";
+    $get->getJSON($query);
+}
+
+
+/*function _getExpertiseTypes() {
 
     $connect = new MysqliConnect;
     $db = $connect->dbConnect();
 
     $query = "SELECT * FROM expertise_type";
-
+/*
     $db->real_escape_string($query);
     $stmt = $db->prepare($query);
     $stmt->execute();
@@ -27,7 +37,7 @@ function _getExpertiseTypes() {
        // echo $response;
         return $results;
         exit;
-    }
+    } */
 
 
     /* $stmt = $db->query($query);
@@ -41,6 +51,6 @@ function _getExpertiseTypes() {
     //var_dump($returnArray);
     //$result = json_encode($returnArray);
     //echo $result;
-}
+//}
 
 ?>
