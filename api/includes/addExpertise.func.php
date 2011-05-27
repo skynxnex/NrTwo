@@ -13,10 +13,10 @@ function _addExpertise($args = array()) {
     $query = "INSERT INTO expertise (expertise_type_id, name, description) VALUES (?,?,?)";
     $stmt = $db->prepare($query);
 
-    $expertiseType = $args['expertise_type'];
+    $expertise_type = $args['expertise_type'];
     $name = $args['name'];
     $desc = $args['desc'];
-    $stmt->bind_param("iss", $expertiseType, $name, $desc);
+    $stmt->bind_param("iss", $expertise_type, $name, $desc);
 
     if ($stmt->execute()) {
         return array('status' => 'success',
