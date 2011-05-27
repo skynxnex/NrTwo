@@ -11,15 +11,20 @@ function newExpertise(){
                 if (list.name == null){
                     var info = "No expertise in db!"
                 } else {
-                    var info = "<input type='radio' value=" + list.id + " name='expertisetype' />" + list.name + "</>";
-                };
+                    var info = "<input type='radio' value=" + list.id + " name='expertise_type' />" + list.name + "</>";
+                }
                 textToInsert += info
                 textToInsert += "</td>";
                 textToInsert += "</tr>";        
             });
             $(".descs").append(textToInsert); 
-        }
+			$("#main_body").append('<p>räääääätt</p>'); 
+        },
+		error: function() {
+			$("#main_body").append('<p>feeeeel</p>'); 
+		}
     });
+	
     $('.error').hide();
     $("input#name").select().focus();
 
@@ -40,7 +45,7 @@ function newExpertise(){
             return false;
         }
 
-        var data = 'expertiseType=' + $("input:radio[name=expertisetype]:checked").val()  + '&name='+ name + '&desc=' + desc;
+        var data = 'expertise_type=' + $("input:radio[name=expertise_type]:checked").val()  + '&name='+ name + '&desc=' + desc;
         $.ajax({
             type: "POST",
             url: "api/?/addExpertise",
