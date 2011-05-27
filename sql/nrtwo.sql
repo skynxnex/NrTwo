@@ -1,4 +1,4 @@
--- Adminer 3.2.2 MySQL dump
+﻿-- Adminer 3.2.2 MySQL dump
 
 SET NAMES utf8;
 SET foreign_key_checks = 0;
@@ -24,13 +24,13 @@ INSERT INTO `expertise` (`id`, `name`, `description`, `expertiseType_id`) VALUES
 (1,	'Tyska',	'Personer som kan tyska hjälpligt',	1);
 
 DROP TABLE IF EXISTS `expertiseType`;
-CREATE TABLE `expertiseType` (
+CREATE TABLE `expertise_type` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO `expertiseType` (`id`, `name`) VALUES
+INSERT INTO `expertise_type` (`id`, `name`) VALUES
 (1,	'Talat språk');
 
 DROP TABLE IF EXISTS `person__expertise`;
