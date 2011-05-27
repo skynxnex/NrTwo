@@ -10,10 +10,10 @@ function _addExpertise($args = array()) {
     $connect = new MysqliConnect;
     $db = $connect->dbConnect();
 
-    $query = "INSERT INTO expertise (expertiseType_id, name, description) VALUES (?,?,?)";
+    $query = "INSERT INTO expertise (expertise_type_id, name, description) VALUES (?,?,?)";
     $stmt = $db->prepare($query);
 
-    $expertiseType = $args['expertiseType'];
+    $expertiseType = $args['expertise_type'];
     $name = $args['name'];
     $desc = $args['desc'];
     $stmt->bind_param("iss", $expertiseType, $name, $desc);
