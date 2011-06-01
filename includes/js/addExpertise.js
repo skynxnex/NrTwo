@@ -18,11 +18,7 @@ function newExpertise(){
                 textToInsert += "</tr>";        
             });
             $(".descs").append(textToInsert); 
-			$("#main_body").append('<p>räääääätt</p>'); 
-        },
-		error: function() {
-			$("#main_body").append('<p>feeeeel</p>'); 
-		}
+        }
     });
 	
     $('.error').hide();

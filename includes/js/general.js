@@ -125,12 +125,12 @@ function listData(data) {
 
 // JS Frontend
 $(function(){
-    $('#addConsult').click(function() {
+    $('a[rel="addConsult"]').click(function() {
         $('#main_body').empty();
         $('#main_body').load('includes/html/formAddConsultant.html', addConsult);
     });
 	
-    $('#listConsults').click(function() {
+    $('a[rel="listConsults"]').click(function() {
         $('#main_body').empty();
     	listConsultants();
     });
@@ -141,7 +141,7 @@ $(function(){
         $('#main_body').load('includes/html/inc_add_expertise.html', newExpertise)
     });
 	
-    $('#createExpertiseType').click(function() {
+    $('a[rel="createExpertiseType"]').click(function() {
         $('#main_body').empty();
         $('#main_body').load('includes/html/formCreateExpertiseType.html', addExpertiseType);
     });
