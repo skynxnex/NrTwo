@@ -1,4 +1,4 @@
-﻿-- Adminer 3.2.2 MySQL dump
+-- Adminer 3.2.2 MySQL dump
 
 SET NAMES utf8;
 SET foreign_key_checks = 0;
@@ -14,16 +14,16 @@ CREATE TABLE `expertise` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_bin NOT NULL,
   `description` tinytext COLLATE utf8_bin,
-  `expertiseType_id` int(10) unsigned NOT NULL,
+  `expertise_type_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `expertiseType_id` (`expertiseType_id`),
-  CONSTRAINT `expertise_ibfk_1` FOREIGN KEY (`expertiseType_id`) REFERENCES `expertiseType` (`id`) ON DELETE NO ACTION
+  KEY `expertise_type_id` (`expertise_type_id`),
+  CONSTRAINT `expertise_ibfk_1` FOREIGN KEY (`expertise_type_id`) REFERENCES `expertise_type` (`id`) ON DELETE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO `expertise` (`id`, `name`, `description`, `expertiseType_id`) VALUES
+INSERT INTO `expertise` (`id`, `name`, `description`, `expertise_type_id`) VALUES
 (1,	'Tyska',	'Personer som kan tyska hjälpligt',	1);
 
-DROP TABLE IF EXISTS `expertiseType`;
+DROP TABLE IF EXISTS `expertise_type`;
 CREATE TABLE `expertise_type` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_bin NOT NULL,
@@ -32,6 +32,7 @@ CREATE TABLE `expertise_type` (
 
 INSERT INTO `expertise_type` (`id`, `name`) VALUES
 (1,	'Talat språk');
+
 
 DROP TABLE IF EXISTS `person__expertise`;
 CREATE TABLE `person__expertise` (
@@ -71,4 +72,4 @@ INSERT INTO `persons` (`id`, `firstname`, `lastname`, `language_id`) VALUES
 (17,	'Kristian',	'Grossman-Madsen',	0),
 (18,	'Hopp',	'hej',	0);
 
--- 2011-05-25 14:28:50
+-- 2011-05-27 00:19:39

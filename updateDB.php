@@ -14,7 +14,7 @@ if (mysqli_connect_errno()) {
 $sql = file_get_contents("sql/nrtwo.sql");
 
 // Performs the $sql query on the server to create the database
-if ($conn->multi_query($sql) === TRUE) {
+if (mysqli_multi_query($conn,$sql) === TRUE) {
   echo 'Database successfully created';
 }
 else {

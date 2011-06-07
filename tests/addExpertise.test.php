@@ -8,7 +8,7 @@ class addExpertise extends UnitTestCase{
 	
 	function test_addExpertise(){
 		
-	$indata = array("name" => "Spanska", "desc" => "olé", "expertiseType" => "1");  //1 exists in db 
+	$indata = array("name" => "Spanska", "desc" => "olé", "expertise_type" => 1);  //1 exists in db 
 	$output = _addExpertise($indata);
 	
 	// kolla att vi inte ficken fail
