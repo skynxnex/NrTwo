@@ -17,7 +17,7 @@ function newExpertise(){
                 textToInsert += "</td>";
                 textToInsert += "</tr>";        
             });
-            $(".descs").append(textToInsert); 
+            $("#main_body").append(textToInsert); 
         }
     });
 	
@@ -56,9 +56,9 @@ function newExpertise(){
                     $('#message').append("<img id='checkmark' src='/images/check.png' />");
                 });
             },
-            error: function() {
+            error: function(returnObj, returnStatus) {
                 $('#main_body').html("<div id='message'></div>");
-                $('#message').html("<p>status: fail</p>");
+                $('#message').html("<p>status: "+returnObj.status+"</p>");
             }
         });
         return false;

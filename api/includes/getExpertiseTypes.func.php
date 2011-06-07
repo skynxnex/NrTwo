@@ -2,20 +2,20 @@
 
 /* param: array(string, string, int), inserts into db, returns: status, insertid,errormsg */
 
-//require_once('../config/config.php');
-//require_once(INCLUDE_PATH . '/api/includes/MysqliConnect.php');
-require_once "getJSON.func.php";
+require_once('../config/config.php');
+require_once(INCLUDE_PATH . '/api/includes/MysqliConnect.php');
+//require_once "getJSON.func.php";
 
-
+/*
 $get = new queryDb();
 
 if (isset($_GET['action']) && $_GET['action'] == 'expertise') {
     $query = "SELECT * FROM expertise_type";
     $get->getJSON($query);
 }
+*/
 
-
-/*function _getExpertiseTypes() {
+function _getExpertiseTypes() {
 
     $connect = new MysqliConnect;
     $db = $connect->dbConnect();
@@ -39,18 +39,17 @@ if (isset($_GET['action']) && $_GET['action'] == 'expertise') {
         exit;
     } */
 
+	$stmt = $db->query($query);
+    $returnArray = array();
+    while ($obj = $stmt->fetch_object()) {
 
-    /* $stmt = $db->query($query);
-      $returnArray = array();
-      while ($obj = $stmt->fetch_object()) {
-
-      $row = array("id" => $obj->id, "name" => $obj->name);
-      $returnArray[] = $row;
-      }
-      return $returnArray; */
+    	$row = array("id" => $obj->id, "name" => $obj->name);
+    	$returnArray[] = $row;
+    	}
+    return $returnArray;
     //var_dump($returnArray);
     //$result = json_encode($returnArray);
     //echo $result;
-//}
+}
 
 ?>
