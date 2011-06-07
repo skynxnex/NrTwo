@@ -8,7 +8,7 @@ class dbconnect extends UnitTestCase {
 		$this->db = new MysqliConnect;
 	}
 	
-	function test_true() {
+	function test_dbconnect() {
 		$this->assertTrue($this->db->dbConnect());
 		$conn = $this->db->dbConnect();
 	}

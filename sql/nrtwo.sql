@@ -1,4 +1,4 @@
-﻿-- Adminer 3.2.2 MySQL dump
+-- Adminer 3.2.2 MySQL dump
 
 SET NAMES utf8;
 SET foreign_key_checks = 0;
@@ -32,6 +32,7 @@ CREATE TABLE `expertise_type` (
 
 INSERT INTO `expertise_type` (`id`, `name`) VALUES
 (1,	'Talat språk');
+
 
 DROP TABLE IF EXISTS `person__expertise`;
 CREATE TABLE `person__expertise` (
@@ -71,4 +72,4 @@ INSERT INTO `persons` (`id`, `firstname`, `lastname`, `language_id`) VALUES
 (17,	'Kristian',	'Grossman-Madsen',	0),
 (18,	'Hopp',	'hej',	0);
 
--- 2011-05-25 14:28:50
+-- 2011-05-27 00:19:39
