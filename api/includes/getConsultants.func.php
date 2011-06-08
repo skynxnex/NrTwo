@@ -17,11 +17,11 @@ function _getConsultants() {
     $stmt->execute();
     $results = DynamicHandler::dynamicBindResults($stmt);
 
-    if (empty($results)) {
+ 	if (empty($results)) {
         echo "fel";
-    } else {
+   	} else {
         return $results;
-        exit;
+       
     }
 
 }
