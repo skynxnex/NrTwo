@@ -145,5 +145,11 @@ $(function(){
         $('#main_body').empty();
         $('#main_body').load('includes/html/formCreateExpertiseType.html', addExpertiseType);
     });
+    
+    $('a[rel="listLanguages"]').click(function() {
+        $('#main_body').empty();
+        $("#main_body").append('<form id="add"></form>');
+        listLanguages();
+    });
 	
 });
