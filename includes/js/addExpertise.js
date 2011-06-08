@@ -4,6 +4,7 @@ function newExpertise(){
         url: "api/?/getExpertiseTypes",
         dataType : 'json',
         success: function(data) {
+        console.log(data);
             var textToInsert = "";
             $.each(data, function(count, list) { 
                 textToInsert += "<tr>";            
