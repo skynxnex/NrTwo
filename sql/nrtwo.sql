@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 08 juni 2011 kl 12:57
+-- Skapad: 08 juni 2011 kl 13:12
 -- Serverversion: 5.1.36
 -- PHP-version: 5.3.0
 
@@ -19,6 +19,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Struktur för tabell `expertise`
 --
 
+DROP TABLE IF EXISTS `expertise`;
 CREATE TABLE IF NOT EXISTS `expertise` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_bin NOT NULL,
@@ -41,6 +42,7 @@ INSERT INTO `expertise` (`id`, `name`, `description`, `expertise_type_id`) VALUE
 -- Struktur för tabell `expertise_type`
 --
 
+DROP TABLE IF EXISTS `expertise_type`;
 CREATE TABLE IF NOT EXISTS `expertise_type` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_bin NOT NULL,
@@ -60,6 +62,7 @@ INSERT INTO `expertise_type` (`id`, `name`) VALUES
 -- Struktur för tabell `persons`
 --
 
+DROP TABLE IF EXISTS `persons`;
 CREATE TABLE IF NOT EXISTS `persons` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `firstname` varchar(50) COLLATE utf8_bin NOT NULL,
@@ -95,6 +98,7 @@ INSERT INTO `persons` (`id`, `firstname`, `lastname`) VALUES
 -- Struktur för tabell `person__expertise`
 --
 
+DROP TABLE IF EXISTS `person__expertise`;
 CREATE TABLE IF NOT EXISTS `person__expertise` (
   `persons_id` tinyint(3) unsigned NOT NULL,
   `expertise_id` int(10) unsigned NOT NULL,
