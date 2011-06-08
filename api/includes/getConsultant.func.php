@@ -5,7 +5,7 @@
 require_once('../config/config.php');
 require_once(INCLUDE_PATH . '/api/includes/MysqliConnect.php');
 
-function _getConsultants() {
+function _getConsultant() {
 
     $connect = new MysqliConnect;
     $db = $connect->dbConnect();
@@ -17,13 +17,16 @@ function _getConsultants() {
     $stmt->execute();
     $results = DynamicHandler::dynamicBindResults($stmt);
 
- 	if (empty($results)) {
+    if (empty($results)) {
+        //global $error;
+        //$error->getMessage(3);
         echo "fel";
-   	} else {
+    } else {
+        //$response = json_encode($results);
+       // header('Content-Type: application/json; charset=utf-8');
+       // echo $response;
         return $results;
-       
+        exit;
     }
-
 }
-
 ?>

@@ -1,5 +1,5 @@
 function addConsult(){
-		
+	chooseLanguage();
 	$('.error').hide();
 	$("input#firstname").select().focus();
 

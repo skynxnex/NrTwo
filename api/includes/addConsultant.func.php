@@ -4,7 +4,7 @@
 require_once('../config/config.php');
 require_once(INCLUDE_PATH.'/api/includes/MysqliConnect.php');
 
-function _addConsultant($args = array()){
+function _addConsultant($args = array()){	
 	
 	
 	$connect = new MysqliConnect;

@@ -47,6 +47,4 @@ function listConsultantsByLanguage(id){
             $("#main_body").html(textToInsert); 
         }
     });	
-}	
-
-
+}
