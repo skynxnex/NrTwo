@@ -46,21 +46,22 @@ function newExpertise(){
         $.ajax({
             type: "POST",
             url: "api/?/addExpertise",
-            dataType : 'json',
+            dataType : 'jsonp',
             data: data,
-            success: function(returnObj, returnStatus) {
+            complete: function(returnObj, returnStatus) {
                 $('#main_body').html("<div id='message'></div>");
-                $('#message').html("<p>status: " + returnObj.status + "</p>")
-                .append('<p>Kompetens är nu inlagd i systemet med id ' + returnObj.id + '</p>')
+                $('#message').html("<p>status: Complete</p>")
+                .append('<p>Kompetens är nu inlagd i systemet.</p>')
                 .hide()
                 .fadeIn(1500, function() {
                     $('#message').append("<img id='checkmark' src='/images/check.png' />");
                 });
             },
-            error: function(returnObj, returnStatus) {
+            /* error: function(returnObj) {
+            	console.log(returnObj);
                 $('#main_body').html("<div id='message'></div>");
                 $('#message').html("<p>status: "+returnObj.status+"</p>");
-            }
+            } */
         });
         return false;
     });
