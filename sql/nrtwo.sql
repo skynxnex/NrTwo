@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 08 juni 2011 kl 14:32
+-- Skapad: 09 juni 2011 kl 08:35
 -- Serverversion: 5.1.36
 -- PHP-version: 5.3.0
 
@@ -12,6 +12,9 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Databas: `nrtwo`
 --
+DROP DATABASE `nrtwo`;
+CREATE DATABASE `nrtwo` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `nrtwo`;
 
 -- --------------------------------------------------------
 
@@ -36,7 +39,26 @@ CREATE TABLE IF NOT EXISTS `expertise` (
 INSERT INTO `expertise` (`id`, `name`, `description`, `expertise_type_id`) VALUES
 (10, 'php', 'ett kul språk', 3),
 (11, 'python', 'ett ormigt språk', 3),
-(12, 'php', 'ett annat språk', 3);
+(12, 'java', 'ett annat språk', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur för tabell `expertise_islike_expertise`
+--
+
+DROP TABLE IF EXISTS `expertise_islike_expertise`;
+CREATE TABLE IF NOT EXISTS `expertise_islike_expertise` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `expertise_id` int(11) NOT NULL,
+  `expertise_id2` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+--
+-- Data i tabell `expertise_islike_expertise`
+--
+
 
 -- --------------------------------------------------------
 
@@ -61,25 +83,28 @@ INSERT INTO `expertise_type` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur för tabell `language_like_language`
+-- Struktur för tabell `person__expertise`
 --
 
-DROP TABLE IF EXISTS `language_like_language`;
-CREATE TABLE IF NOT EXISTS `language_like_language` (
-  `language_id` int(10) unsigned NOT NULL,
-  `like_language_id` int(10) unsigned NOT NULL,
-  UNIQUE KEY `language_id` (`language_id`,`like_language_id`)
+DROP TABLE IF EXISTS `person__expertise`;
+CREATE TABLE IF NOT EXISTS `person__expertise` (
+  `persons_id` tinyint(3) unsigned NOT NULL,
+  `expertise_id` int(10) unsigned NOT NULL,
+  UNIQUE KEY `persons_id_2` (`persons_id`,`expertise_id`),
+  KEY `persons_id` (`persons_id`),
+  KEY `expertise_id` (`expertise_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Data i tabell `language_like_language`
+-- Data i tabell `person__expertise`
 --
 
-INSERT INTO `language_like_language` (`language_id`, `like_language_id`) VALUES
-(10, 11),
-(10, 12),
-(12, 13),
-(13, 12);
+INSERT INTO `person__expertise` (`persons_id`, `expertise_id`) VALUES
+(19, 10),
+(19, 11),
+(20, 10),
+(20, 11),
+(20, 12);
 
 -- --------------------------------------------------------
 
@@ -92,7 +117,6 @@ CREATE TABLE IF NOT EXISTS `persons` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `firstname` varchar(50) COLLATE utf8_bin NOT NULL,
   `lastname` varchar(50) COLLATE utf8_bin NOT NULL,
-  `language_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=21 ;
 
@@ -100,28 +124,9 @@ CREATE TABLE IF NOT EXISTS `persons` (
 -- Data i tabell `persons`
 --
 
-INSERT INTO `persons` (`id`, `firstname`, `lastname`, `language_id`) VALUES
-(19, 'martin', 'barri', 1),
-(20, 'anneli', 'halldn', 2);
-
--- --------------------------------------------------------
-
---
--- Struktur för tabell `person__expertise`
---
-
-DROP TABLE IF EXISTS `person__expertise`;
-CREATE TABLE IF NOT EXISTS `person__expertise` (
-  `persons_id` tinyint(3) unsigned NOT NULL,
-  `expertise_id` int(10) unsigned NOT NULL,
-  KEY `persons_id` (`persons_id`),
-  KEY `expertise_id` (`expertise_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Data i tabell `person__expertise`
---
-
+INSERT INTO `persons` (`id`, `firstname`, `lastname`) VALUES
+(19, 'martin', 'barri'),
+(20, 'anneli', 'halldn');
 
 --
 -- Restriktioner för dumpade tabeller

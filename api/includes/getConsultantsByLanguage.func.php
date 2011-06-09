@@ -8,13 +8,13 @@ function _getConsultantByLanguage($args = array()) {
     $connect = new MysqliConnect;
     $db = $connect->dbConnect();
 	
-	$language = $args[0];
+	$language = $args['id'];
 	
     $query = "SELECT persons.*
 	FROM persons,person__expertise, expertise
 	WHERE persons.id = person__expertise.persons_id
 	AND person__expertise.expertise_id = expertise.id
-	AND expertise.name = '$language'"
+	AND expertise.id = '$language'"
 	;
   
  	$stmt = $db->query($query);
