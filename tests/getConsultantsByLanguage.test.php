@@ -7,7 +7,7 @@ class getConsultantsByLanguage extends UnitTestCase {
 
     function test_getConsultantsByLanguage() {
     
-       $language = _getConsultantByLanguage(array('Tyska'));
+       $language = _getConsultantByLanguage(array('id' => 3));
         
 		//kolla att det vi får inte är tomt
 		//$this->assertTrue($language);

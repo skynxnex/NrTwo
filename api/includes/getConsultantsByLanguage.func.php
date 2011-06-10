@@ -9,14 +9,13 @@ function _getConsultantByLanguage($args = array()) {
     $db = $connect->dbConnect();
 	
 	$language = $args['id'];
-	
+		
     $query = "SELECT persons.*
 	FROM persons,person__expertise, expertise
 	WHERE persons.id = person__expertise.persons_id
 	AND person__expertise.expertise_id = expertise.id
-	AND expertise.id = '$language'"
+	AND expertise.id = $language"
 	;
-  
  	$stmt = $db->query($query);
 	 
     $returnArray = array();
@@ -25,6 +24,7 @@ function _getConsultantByLanguage($args = array()) {
     	$row = array("id" => $obj->id, "firstname" => $obj->firstname, "lastname" => $obj->lastname);
     	$returnArray[] = $row;
     	}
+ 	var_dump($returnArray);
     return $returnArray;
 
  
