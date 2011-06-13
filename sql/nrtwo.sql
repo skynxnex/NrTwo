@@ -20,6 +20,26 @@ CREATE TABLE `expertise` (
   CONSTRAINT `expertise_ibfk_1` FOREIGN KEY (`expertise_type_id`) REFERENCES `expertise_type` (`id`) ON DELETE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+INSERT INTO `expertise` (`id`, `name`, `description`, `expertise_type_id`) VALUES
+(1,	'Tyska',	'Personer som kan tyska hjälpligt',	1),
+(2,	'php',	'kan programmera php',	2),
+(3,	'java',	'kan programmera java',	2),
+(4,	'javascript',	'kan programmera javascript',	2),
+(5,	'python',	'kan programmera python',	2),
+(6,	'c++',	'kan programmera c++',	2),
+(7,	'lisp',	'kan programmera lisp',	2),
+(8,	'clojure',	'kan programmera clojure',	2);
+
+DROP TABLE IF EXISTS `expertise_like_expertise`;
+CREATE TABLE `expertise_like_expertise` (
+  `expertise_id` int(10) unsigned NOT NULL,
+  `like_expertise_id` int(10) unsigned NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+INSERT INTO `expertise_like_expertise` (`expertise_id`, `like_expertise_id`) VALUES
+(3,	4),
+(3,	5),
+(7,	8);
 
 DROP TABLE IF EXISTS `expertise_type`;
 CREATE TABLE `expertise_type` (
@@ -28,13 +48,9 @@ CREATE TABLE `expertise_type` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-
-DROP TABLE IF EXISTS `language_like_languange`;
-CREATE TABLE `language_like_languange` (
-  `language_id` int(10) unsigned NOT NULL,
-  `like_language_id` int(10) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
+INSERT INTO `expertise_type` (`id`, `name`) VALUES
+(1,	'Talat språk'),
+(2,	'programmeringsspråk');
 
 DROP TABLE IF EXISTS `person__expertise`;
 CREATE TABLE `person__expertise` (
@@ -46,15 +62,45 @@ CREATE TABLE `person__expertise` (
   CONSTRAINT `person__expertise_ibfk_2` FOREIGN KEY (`expertise_id`) REFERENCES `expertise` (`id`) ON DELETE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+INSERT INTO `person__expertise` (`persons_id`, `expertise_id`) VALUES
+(7,	2),
+(11,	3),
+(11,	2),
+(11,	4),
+(17,	2),
+(17,	3),
+(17,	4),
+(17,	5),
+(17,	6),
+(17,	7),
+(18,	8),
+(18,	7),
+(18,	2);
 
 DROP TABLE IF EXISTS `persons`;
 CREATE TABLE `persons` (
   `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `firstname` varchar(50) COLLATE utf8_bin NOT NULL,
   `lastname` varchar(50) COLLATE utf8_bin NOT NULL,
-  `language_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+INSERT INTO `persons` (`id`, `firstname`, `lastname`) VALUES
+(1,	'anders',	'olsson'),
+(2,	'pelle',	'olsson'),
+(3,	'peter',	'olsson'),
+(4,	'martin',	'olsson'),
+(5,	'sture',	'olsson'),
+(6,	'niklas',	'olsson'),
+(7,	'Pontus',	'Alm'),
+(8,	'ove',	'olsson'),
+(9,	'ulf',	'olsson'),
+(10,	'james',	'olsson'),
+(11,	'jace',	'olsson'),
+(12,	'joel',	'olsson'),
+(13,	'jonas',	'olsson'),
+(14,	'mikael',	'olsson'),
+(17,	'Kristian',	'Grossman-Madsen'),
+(18,	'Hopp',	'hej');
 
--- 2011-06-08 15:30:30
+-- 2011-06-13 11:05:29
