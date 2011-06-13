@@ -86,21 +86,21 @@ CREATE TABLE `persons` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO `persons` (`id`, `firstname`, `lastname`) VALUES
-(1,	'pelle',	'olsson'),
+(1,	'anders',	'olsson'),
 (2,	'pelle',	'olsson'),
-(3,	'pelle',	'olsson'),
-(4,	'pelle',	'olsson'),
-(5,	'pelle',	'olsson'),
-(6,	'pelle',	'olsson'),
+(3,	'peter',	'olsson'),
+(4,	'martin',	'olsson'),
+(5,	'sture',	'olsson'),
+(6,	'niklas',	'olsson'),
 (7,	'Pontus',	'Alm'),
-(8,	'pelle',	'olsson'),
-(9,	'pelle',	'olsson'),
-(10,	'pelle',	'olsson'),
-(11,	'olle',	'olsson'),
-(12,	'olle',	'olsson'),
-(13,	'olle',	'olsson'),
-(14,	'olle',	'olsson'),
+(8,	'ove',	'olsson'),
+(9,	'ulf',	'olsson'),
+(10,	'james',	'olsson'),
+(11,	'jace',	'olsson'),
+(12,	'joel',	'olsson'),
+(13,	'jonas',	'olsson'),
+(14,	'mikael',	'olsson'),
 (17,	'Kristian',	'Grossman-Madsen'),
 (18,	'Hopp',	'hej');
 
--- 2011-06-09 11:51:05
+-- 2011-06-13 11:05:29
