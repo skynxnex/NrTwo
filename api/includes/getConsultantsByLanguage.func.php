@@ -4,7 +4,7 @@ require_once('../config/config.php');
 require_once(INCLUDE_PATH . '/api/includes/MysqliConnect.php');
 
 function _getConsultantsByLanguage($args = array()) {
-	
+
     $connect = new MysqliConnect;
     $db = $connect->dbConnect();
 	
@@ -17,16 +17,18 @@ function _getConsultantsByLanguage($args = array()) {
 	AND expertise.id = $language"
 	;
  	$stmt = $db->query($query);
-	 
+	
+	if($stmt){
     $returnArray = array();
     while ($obj = $stmt->fetch_object()) {
 
     	$row = array("id" => $obj->id, "firstname" => $obj->firstname, "lastname" => $obj->lastname);
     	$returnArray[] = $row;
     	}
- 	var_dump($returnArray);
-    return $returnArray;
-
+     	return $returnArray;
+	}else{
+		return array('status' => 'fail');
+	} 
  
 }
 
