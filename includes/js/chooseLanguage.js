@@ -33,7 +33,7 @@ function listConsultantsByLanguage(id){
         dataType : 'json',
         data : dataString,
         success: function(data) {
-           	textToInsert = "<ul class='language'>";    
+           	textToInsert = "<ul class='language'><li>Dessa konsulter kan det valda spr&aring;ket:</li>";    
             $.each(data, function(count, list) {                         
                 if (list.firstname == null){
                     var info = "No consultants with this language!"
@@ -43,9 +43,10 @@ function listConsultantsByLanguage(id){
                 };
                 textToInsert += info               
             });
-             textToInsert += "</ul>";        
-            $("#main_body").append(textToInsert); 
-            listConsultantsByEqLanguage($("option:selected").val());
+             textToInsert += "</ul>";
+             var id = $("option:selected").val();
+            $("#main_body").html(textToInsert); 
+            listConsultantsByEqLanguage(id);
         }
     });	
 }
@@ -57,13 +58,19 @@ function listConsultantsByEqLanguage(id){
         dataType : 'json',
         data : dataString,
         success: function(data) {
-            var textToInsert = "<ul><li>Konsulter som kan liknande spr&aring;k</li>";
+        	if(data.status == 'fail'){
+        		return false;
+        	}
+            var textToInsert = "<ul class='language'><li>Konsulter som kan liknande spr&aring;k:</li>";
             $.each(data, function(count, list) {                         
                 if (list.firstname == null){
-                    var info = "No consultants with this language!"
+                    return false;
                 } else {
                     // var info = "<li>" + list.firstname + " " + list.lastname + "</li>";
-					var info = "<li>" + list.firstname + " " + list.lastname + " <a href='#' onclick='javascript:show_more()' rel='" + list.id + "'>Visa mer..</a></li>";
+					var info = "<li>" + list.firstname + " " + list.lastname 
+					+ " kan " + list.language
+					+ " <a href='#' onclick='javascript:show_more()' rel='" 
+					+ list.id + "'>Visa mer..</a></li>";
                 };
                 textToInsert += info;                        
             });

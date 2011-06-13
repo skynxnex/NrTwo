@@ -17,15 +17,16 @@ function _getConsultantsByEqLanguage($args = array()) {
 		AND person__expertise.expertise_id = expertise.id
 		AND expertise.id IN (SELECT expertise_like_expertise.like_expertise_id 
 			FROM expertise_like_expertise 
-			WHERE expertise_id = $language_id)
-		AND expertise.id NOT IN ($language_id)
+			WHERE expertise_id = $language_id)		
 		GROUP BY persons.id"
 		;	
+	
 		 	$stmt = $db->query($query2);
 			$returnArray = array();
 		    while ($obj = $stmt->fetch_object()) {
 		
-		    	$row = array("id" => $obj->id, "firstname" => $obj->firstname, "lastname" => $obj->lastname);
+		    	$row = array("id" => $obj->id, "firstname" => $obj->firstname,
+		    	 "lastname" => $obj->lastname, "language" => $obj->name);
 		    	$returnArray[] = $row;
 	    	}
     	if($returnArray){	
