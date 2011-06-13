@@ -1,8 +1,8 @@
 function listLanguages() {
-	$.get(	'api/?/getExpertise', 
+	$.post(	'api/?/getExpertise', 
 			function(data) {
 				var textToInsert = "";
-				textToInsert += "<select>";
+				textToInsert += "<form id='add'><select>";
 				$.each(data, function(count, list) { 
 					    if (list.name == null){
 					        textToInsert += "<option>No language in db!"
@@ -14,14 +14,15 @@ function listLanguages() {
 					    textToInsert += "</option>";
 					});
 					textToInsert += "</select>"; 
-					textToInsert += "<input type='submit' />";  
-					$("#add").append(textToInsert);
-			}, 'json'
-		);
-	$("#add").submit(function(){
+					textToInsert += "<input type='submit' /></form>";  
+					$("#main_body").append(textToInsert);
+					$("#add").submit(function(){				
 		listConsultantsByLanguage($("option:selected").val());
 		return false;
 		});
+			}, 'json'
+		);
+
 }
 
 function listConsultantsByLanguage(id){
@@ -32,19 +33,42 @@ function listConsultantsByLanguage(id){
         dataType : 'json',
         data : dataString,
         success: function(data) {
-            var textToInsert = "";
-            $.each(data, function(count, list) { 
-                textToInsert += "<ul>";            
+           	textToInsert = "<ul class='language'>";    
+            $.each(data, function(count, list) {                         
                 if (list.firstname == null){
                     var info = "No consultants with this language!"
                 } else {
                     // var info = "<li>" + list.firstname + " " + list.lastname + "</li>";
 					var info = "<li>" + list.firstname + " " + list.lastname + " <a href='#' onclick='javascript:show_more()' rel='" + list.id + "'>Visa mer..</a></li>";
                 };
-                textToInsert += info
-                textToInsert += "</ul>";        
+                textToInsert += info               
             });
-            $("#main_body").html(textToInsert); 
+             textToInsert += "</ul>";        
+            $("#main_body").append(textToInsert); 
+            listConsultantsByEqLanguage($("option:selected").val());
+        }
+    });	
+}
+function listConsultantsByEqLanguage(id){
+	var dataString = 'id='+ id;
+    $.ajax({
+        type: "POST",
+        url: "api/?/getConsultantsByEqLanguage",
+        dataType : 'json',
+        data : dataString,
+        success: function(data) {
+            var textToInsert = "<ul><li>Konsulter som kan liknande spr&aring;k</li>";
+            $.each(data, function(count, list) {                         
+                if (list.firstname == null){
+                    var info = "No consultants with this language!"
+                } else {
+                    // var info = "<li>" + list.firstname + " " + list.lastname + "</li>";
+					var info = "<li>" + list.firstname + " " + list.lastname + " <a href='#' onclick='javascript:show_more()' rel='" + list.id + "'>Visa mer..</a></li>";
+                };
+                textToInsert += info;                        
+            });
+            textToInsert += "</ul>";
+            $("#main_body").append(textToInsert); 
         }
     });	
 }

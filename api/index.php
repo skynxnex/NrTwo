@@ -1,7 +1,7 @@
 <?php
 
 require_once('../config/config.php');
-require_once(INCLUDE_PATH.'/api/includes/MysqliConnect.php');
+//require_once(INCLUDE_PATH.'/api/includes/MysqliConnect.php');
 include '../includes/php/dynamicHandler.php';
 include '../includes/php/search.php';
 include '../includes/php/include.php';
@@ -19,11 +19,11 @@ include '../includes/php/include.php';
 // $connect = new MysqliConnect();
 // $db = $connect->dbConnect();
  
-$keys = array_keys($_GET);
-$url = $keys[0];
-$urlParts = explode("/", $url);
-$action = $urlParts[1];
-$file = INCLUDE_PATH . 'api/includes/' . $action . '.func.php';
+$keys 		= array_keys($_GET);
+$url 		= $keys[0];
+$urlParts 	= explode("/", $url);
+$action 	= $urlParts[1];
+$file 		= INCLUDE_PATH . 'api/includes/' . $action . '.func.php';
 
 
 if (file_exists($file)) {
