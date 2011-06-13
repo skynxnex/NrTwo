@@ -1,10 +1,7 @@
 <?php
 
 require_once('../config/config.php');
-//require_once(INCLUDE_PATH.'/api/includes/MysqliConnect.php');
-include '../includes/php/dynamicHandler.php';
-include '../includes/php/search.php';
-include '../includes/php/include.php';
+require_once('../api/includes/Manager.php');
 //include_once(INCLUDE_PATH.'/firephp/lib/FirePHPCore/FirePHP.class.php'); // php debug tillagd av pontus, bara att ignorera 
 
 /**
@@ -16,19 +13,17 @@ include '../includes/php/include.php';
  * */
  
 // $firephp = FirePHP::getInstance(true); // php debug tillagd av pontus
-// $connect = new MysqliConnect();
-// $db = $connect->dbConnect();
- 
+
 $keys 		= array_keys($_GET);
 $url 		= $keys[0];
 $urlParts 	= explode("/", $url);
-$action 	= $urlParts[1];
-$file 		= INCLUDE_PATH . 'api/includes/' . $action . '.func.php';
+$action 	= '_'.$urlParts[1];
 
+$manager	= new Manager();
+$return		= "";
 
-if (file_exists($file)) {
-    include($file);
-    $return = call_user_func('_' . $action, $_POST);
+if (method_exists($manager, $action)) {
+    $return = $manager->$action($_POST);
 } else {
     $return = array('info' => "no such file or function " . $action);
 }
