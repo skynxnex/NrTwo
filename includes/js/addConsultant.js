@@ -1,9 +1,22 @@
 function addConsult(){
-	chooseLanguage();
+	
+	$.post("api/?/getExpertise", function(data){
+		var textToInsert = "";
+		$.each(data, function(count, list) { 
+			if (list.name == null){
+				var info = "No languages in db!";
+			} else {
+				var info = "<input name='lang' value='" + list.id + "' type='radio'> " + list.name + "</><br />";
+			};
+			textToInsert += info
+		});
+		$("#new_user fieldset").before(textToInsert); 
+	}, "json");
+		
 	$('.error').hide();
 	$("input#firstname").select().focus();
 
-	$(".submit").click(function() {
+	$("#new_user").submit(function() {
 		// validate and process form
 		// first hide any error messages
 		$('.error').hide();
@@ -19,30 +32,14 @@ function addConsult(){
 			$("input#lastname").focus();
 			return false;
 		}
-
-		var dataString = 'firstname='+ firstname + '&lastname=' + lastname;
-		// alert (dataString); return false;
-
-		$.ajax({
-			type: "POST",
-			url: "api/?/addConsultant",
-			dataType : 'json',
-			data: dataString,
-			success: function(returnObj, returnStatus) {
-				$('#main_body').html("<div id='message'></div>");
-				$('#message').html("<p>status: " + returnObj.status + "</p>")
-				.append('<p>Konsulten är nu inlagd i systemet med id ' + returnObj.id + '</p>')
-				.hide()
-				.fadeIn(1500, function() {
-					$('#message').append("<img id='checkmark' src='/images/check.png' />");
-				});
-			},
-			error: function() {
-				$('#main_body').html("<div id='message'></div>");
-				$('#message').html("<p>status: fail</p>");
-			}
-		});
+		
+		$.post("api/?/addConsultant", $("#new_user").serialize(), function(data){
+			$('#main_body').html("<div id='message'></div>");
+			$('#message').html("<p>status: " + data.status + "</p>")
+			.append('<p>Konsulten är nu inlagd i systemet med id ' + data.id + '</p>')
+		}, "json");
 		return false;
+		
 	});
 
 }

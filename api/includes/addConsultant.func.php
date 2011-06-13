@@ -4,7 +4,7 @@
 require_once('../config/config.php');
 require_once(INCLUDE_PATH.'/api/includes/MysqliConnect.php');
 
-function _addConsultant($args = array()){	
+function _addConsultant($args = array()){
 	
 	
 	$connect = new MysqliConnect;
@@ -15,24 +15,35 @@ function _addConsultant($args = array()){
 	
 	$firstname = $args['firstname'];
 	$lastname = $args['lastname'];
+	$language_id = $args['lang'];
+	
 	$stmt->bind_param("ss", $firstname, $lastname);
-	
-	if($stmt->execute()) {
-		return array(	'status' => 'success',
-						'id' => $stmt->insert_id,
-						'error' => $stmt->error
-					);
-	}
-	
-	/* $.ajax() error() doesnt return an object which doesnt make
-		it possible to retrive the returned values
-	else{
+	if ($stmt->execute()) {
+
+		// Fetching ID from newly inserted person
+		$person_id = $stmt->insert_id;
+		
+		$query = "INSERT INTO person__expertise (persons_id, expertise_id) VALUES (?,?)";
+		$stmt = $db->prepare($query);
+		$stmt->bind_param("ii", $person_id, $language_id);
+		
+		if($stmt->execute()) {
+			return array(	'status' => 'success',
+							'id' => $person_id,
+							'error' => $stmt->error
+						);
+		}else{
+			return array(	'status' => 'fail',
+							'id' => $person_id,
+							'error' => $stmt->error
+						);
+		} 
+	}else{
 		return array(	'status' => 'fail',
 						'id' => $stmt->insert_id,
 						'error' => $stmt->error
 					);
-		}
-	*/
+	}
 
 }
 

@@ -6,7 +6,10 @@ class getExpertiseTypes extends UnitTestCase {
 
     function test_getExpertiseTypes() {
     
-        _getExpertiseTypes();
+       $result = _getExpertiseTypes();
+	   $this->assertTrue($result);
+	   
+	   print_r($result);
         
     }
 
