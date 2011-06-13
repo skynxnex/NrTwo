@@ -151,5 +151,10 @@ $(function(){
         $("#main_body").append('<form id="add"></form>');
         listLanguages();
     });
+    $('a[rel="addProject"]').click(function() {
+        $('#main_body').empty();
+        $('#main_body').load('includes/html/formAddProject.html', addProject);
+    });
+    
 	
 });
