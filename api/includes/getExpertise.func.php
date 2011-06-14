@@ -8,8 +8,8 @@ function _getExpertise() {
 	$connect = new MysqliConnect;
 	$db = $connect->dbConnect();
 
-	$query = 	"SELECT * FROM expertise
-				WHERE expertise_type_id = 2";
+	$query = 	"SELECT * FROM expertise";
+				/*WHERE expertise_type_id = 2";*/
 
 	$stmt = $db->query($query);
 	$returnArray = array();
