@@ -28,4 +28,5 @@ if (method_exists($manager, $action)) {
     $return = array('info' => "no such file or function " . $action);
 }
 
+header('Content-type: application/json: charset=utf-8');
 echo json_encode($return);

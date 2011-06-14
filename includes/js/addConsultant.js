@@ -10,7 +10,7 @@ function addConsult(){
 			};
 			textToInsert += info
 		});
-		$("#new_user fieldset").before(textToInsert); 
+		$("#submit_btn").before(textToInsert); 
 	}, "json");
 		
 	$('.error').hide();
