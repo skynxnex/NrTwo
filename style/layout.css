@@ -5,23 +5,113 @@ BODY.loading A {
     cursor: progress !important;
 }
 
-li {
-	float: left;
-	margin: 10px;
+body{
+width: 100%;
+height: 100%;
+min-height: 700px;
+
+	  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(100% 100% 90deg, #E3DEE0, #999496);
+  
+  /* Safari 4-5, Chrome 1-9 */
+  /* -webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*) */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#E3DEE0), to(#999496));
+  
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-linear-gradient(#999496, #E3DEE0);
+  
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(#999496, #E3DEE0);
 }
 
-p {
+p, li, ul, a {
 	margin-bottom:10px;
+	font-family: arial;
 }
 
 form {
-	margin:20px;
+	font-family: arial;
 }
+
 fieldset {
 	border:1px solid #666;
-	padding:20px;
+	padding:10px;
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .language li{
 	float: none;
 }
+
+#menu li{
+	list-style-type: none;
+	color: white;
+}
+
+#menu li a{
+	float: left;
+	margin: 10px;
+	list-style-type: none;
+	font-family: arial;
+	color: black;
+	text-decoration: none;
+}
+
+#menu ul li{
+	display: inline;
+}
+
+#menu ul li a
+{
+text-decoration: none;
+padding: 1em 0.5em;
+font-size: 0.95em;
+}
+#menu ul li a:hover{
+text-decoration: underline;
+}
+
+#menu ul li a:active{
+text-decoration: underline;
+}
+
+#menu ul {
+margin: 20px;
+padding: 0;
+list-style-type: none;
+text-align: center;
+}
+
+#pic{
+	width: 300px;
+	margin-left: auto;
+}
+
+#logo p{
+	text-align: center;
+	font-size: 2em;
+	font-family: arial;
+	color: white;
+}
+
+#logo{
+	text-align: center;
+	padding-top: 10px;
+}
+
+
+#main_body ul li a {
+	font-size: 0.7em;
+	margin-left: 20px;
+	color: black;
+}
+
+#main_body{
+	margin-left: 60px;
+	color: black;
+}
+
+
+
