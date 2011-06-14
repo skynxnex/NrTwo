@@ -10,6 +10,7 @@ class MysqlDB {
 
    public function __construct($host, $username, $password, $db) {
       $this->_mysql = new mysqli($host, $username, $password, $db) or die('There was a problem connecting to the database');
+      $this->_mysql->set_charset("utf8");
    }
 
    /**
@@ -278,6 +279,17 @@ class MysqlDB {
    public function __destruct() 
    {
       $this->_mysql->close();
+   }
+   
+   public function getLastInsertedId() {
+		$id = $this->_mysql->insert_id;
+		return $id;
+   }
+   
+   public function toNull() {
+   	$this->_crudType = null;
+   	$this->_query = null;
+   	$this->_paramTypeList = null;
    }
 
 }

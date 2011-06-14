@@ -1,27 +1,20 @@
-<div class="descs"> 
-    <table cellspacing="5">  
-        <thead>  
-        </thead>  
-        <tbody>    
-        </tbody>   
-    </table> 
+<div id="new_expertise_form">
+	<form id="new_expertise" action="">
+		<fieldset>
+		    <legend>Lägg till ny Kompetens</legend>
+		    <p>
+		        <label for="name">Namn:</label><br />
+		        <input id="name" type="text" />
+		        <label class="error" for="name" id="name_error">*Obligatorisk fält.</label>
+		    </p>
+		    <p>
+		        <label for="desc">Beskrivning:</label><br />
+		        <input id="desc" type="text" />
+		        <label class="error" for="desc" id="desc_error">*Obligatorisk fält.</label>
+		    </p>
+		    <p>
+		        <input class="submit" id="submit_btn" type="submit" value="Lägg till" />
+		    </p>
+		</fieldset>
+	</form>
 </div>
-
-<form id="new_expertise" action="">
-    <fieldset>
-        <legend>Lägg till ny Kompetens</legend>
-        <p>
-            <label for="name">Namn:</label><br />
-            <input id="name" type="text" />
-            <label class="error" for="name" id="name_error">*Obligatorisk fält.</label>
-        </p>
-        <p>
-            <label for="desc">Beskrivning:</label><br />
-            <input id="desc" type="text" />
-            <label class="error" for="desc" id="desc_error">*Obligatorisk fält.</label>
-        </p>
-        <p>
-            <input class="submit" id="submit_btn" type="submit" value="Lägg till" />
-        </p>
-    </fieldset>
-</form>

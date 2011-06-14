@@ -18,7 +18,7 @@ function newExpertise(){
                 textToInsert += "</td>";
                 textToInsert += "</tr>";        
             });
-            $("#main_body").append(textToInsert); 
+            $("#submit_btn").before(textToInsert); 
         }
     });
 	
