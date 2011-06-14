@@ -104,7 +104,9 @@ text-align: center;
 
 #main_body ul li a {
 	font-size: 0.7em;
-	margin-left: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 	color: black;
 }
 
