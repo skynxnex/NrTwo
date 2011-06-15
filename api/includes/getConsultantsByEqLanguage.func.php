@@ -11,14 +11,18 @@ function _getConsultantsByEqLanguage($args = array()) {
 	
 	$language_id = $args['id'];
 
-	$query2 = "SELECT persons.*, expertise.name FROM
-		persons,person__expertise,expertise
-		WHERE persons.id = person__expertise.persons_id
-		AND person__expertise.expertise_id = expertise.id
-		AND expertise.id IN (SELECT expertise_like_expertise.like_expertise_id 
-			FROM expertise_like_expertise 
-			WHERE expertise_id = $language_id)		
-		GROUP BY persons.id"
+	$query2 = "SELECT persons.*, GROUP_CONCAT(expertise_like_expertise.like_expertise_id)AS like_lang
+FROM persons, person__expertise, expertise, expertise_like_expertise
+WHERE expertise.id = expertise_like_expertise.expertise_id
+AND expertise_like_expertise.like_expertise_id = person__expertise.expertise_id
+AND person__expertise.persons_id = persons.id
+AND expertise.id = $language_id
+AND persons.id NOT IN (SELECT persons.id
+	FROM persons,person__expertise, expertise
+	WHERE persons.id = person__expertise.persons_id
+	AND person__expertise.expertise_id = expertise.id
+	AND expertise.id = $language_id)
+GROUP BY persons.id"
 		;	
 	
 		 	$stmt = $db->query($query2);
