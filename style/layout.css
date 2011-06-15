@@ -45,6 +45,11 @@ fieldset {
 	float: none;
 }
 
+.language ul:first-child {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
 #menu li{
 	list-style-type: none;
 	color: white;

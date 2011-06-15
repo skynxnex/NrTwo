@@ -33,8 +33,8 @@ function listConsultantsByLanguage(id){
         dataType : 'json',
         data : dataString,
         success: function(data) {
-           	textToInsert = "<ul class='language'><li>Dessa konsulter kan det valda spr&aring;ket:</li>";    
-            $.each(data, function(count, list) {                         
+           	textToInsert = "<p>Konsulter som kan det valda språket:</p><ul class='language'>";
+            $.each(data, function(count, list) {
                 if (list.firstname == null){
                     var info = "No consultants with this language!"
                 } else {
@@ -61,7 +61,7 @@ function listConsultantsByEqLanguage(id){
         	if(data.status == 'fail'){
         		return false;
         	}
-            var textToInsert = "<ul class='language'><li>Konsulter som kan liknande spr&aring;k:</li>";
+            var textToInsert = "<p>Konsulter som kan liknande språk:</p><ul class='language'>";
             $.each(data, function(count, list) {                         
                 if (list.firstname == null){
                     return false;

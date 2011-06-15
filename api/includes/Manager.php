@@ -101,7 +101,8 @@ class Manager {
     $result 		= false;
     $language_id	= $args['id'];
     
-    $query = "SELECT persons.*, GROUP_CONCAT(expertise_like_expertise.like_expertise_id)AS like_lang
+    $query = "SELECT like_consultants.firstname, like_consultants.lastname, expertise.name AS language
+FROM expertise, (SELECT persons.*, GROUP_CONCAT(expertise_like_expertise.like_expertise_id)AS like_lang
 FROM persons, person__expertise, expertise, expertise_like_expertise
 WHERE expertise.id = expertise_like_expertise.expertise_id
 AND expertise_like_expertise.like_expertise_id = person__expertise.expertise_id
@@ -112,7 +113,8 @@ AND persons.id NOT IN (SELECT persons.id
 	WHERE persons.id = person__expertise.persons_id
 	AND person__expertise.expertise_id = expertise.id
 	AND expertise.id = $language_id)
-GROUP BY persons.id";	
+GROUP BY persons.id)AS like_consultants
+WHERE expertise.id = like_lang";	
     	
     	$results = $this->mysqldb->query($query);
 		
