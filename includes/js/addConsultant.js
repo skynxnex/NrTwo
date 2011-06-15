@@ -1,18 +1,18 @@
 function addConsult(){
-	
+
 	$.post("api/?/getExpertise", function(data){
 		var textToInsert = "";
 		$.each(data, function(count, list) { 
 			if (list.name == null){
 				var info = "No languages in db!";
 			} else {
-				var info = "<input name='lang' value='" + list.id + "' type='radio'> " + list.name + "</><br />";
+				var info = "<input name='lang' value='" + list.id + "' type='checkbox'> " + list.name + "</><br />";
 			};
 			textToInsert += info
 		});
 		$("#submit_btn").before(textToInsert); 
 	}, "json");
-		
+
 	$('.error').hide();
 	$("input#firstname").select().focus();
 
@@ -36,10 +36,9 @@ function addConsult(){
 		$.post("api/?/addConsultant", $("#new_user").serialize(), function(data){
 			$('#main_body').html("<div id='message'></div>");
 			$('#message').html("<p>status: " + data.status + "</p>")
-			.append('<p>Konsulten är nu inlagd i systemet med id ' + data.id + '</p>')
+			.append('<p>Konsulten är nu inlagd i systemet</p>')
 		}, "json");
 		return false;
-		
 	});
 
 }

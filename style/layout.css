@@ -90,19 +90,21 @@ text-align: center;
 }
 
 #pic{
-	width: 300px;
-	margin-left: auto;
+	width: 150px;
+	margin-right: 80px;
+	margin-top: 20px;
 }
 
 #logo p{
-	text-align: center;
+	text-align: right;
 	font-size: 2em;
 	font-family: arial;
 	color: white;
+	margin-right: 80px;
 }
 
 #logo{
-	text-align: center;
+	text-align: right;
 	padding-top: 10px;
 }
 
