@@ -19,8 +19,9 @@ class Manager {
         return $results;
     }
 
+	// should be renamed to getProgrammingLagnugage?? --kgm
     public function _getExpertise() {
-		$query = "SELECT * FROM expertise WHERE expertise_type_id = 2";
+		$query = "SELECT * FROM expertise WHERE expertise_type_id = 2"; //2 for programming language
         $results = $this->mysqldb->query($query);
         return $results;
     }
